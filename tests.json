@@ -1,0 +1,39 @@
+[
+  {"id": "T01", "input": "Пользователь admin вошёл с рабочего IP 10.0.0.15 в 10:30 в рабочее время, MFA пройдена.", "expected": "normal", "type": "typical_normal"},
+  {"id": "T02", "input": "Сотрудник ivanov скачал 3 файла из внутреннего репозитория в 14:00.", "expected": "normal", "type": "typical_normal"},
+  {"id": "T03", "input": "Сервисная учётная запись backup выполнила плановое резервное копирование в 02:00 согласно расписанию.", "expected": "normal", "type": "typical_normal"},
+  {"id": "T04", "input": "Пользователь petrova открыла корпоративную почту с рабочего ноутбука в 09:15.", "expected": "normal", "type": "typical_normal"},
+  {"id": "T05", "input": "Система обновила сертификат SSL для веб-сервера согласно плану обслуживания.", "expected": "normal", "type": "typical_normal"},
+  {"id": "T06", "input": "Пользователь sidorov распечатал 5 страниц отчёта на корпоративном принтере в 15:30.", "expected": "normal", "type": "typical_normal"},
+
+  {"id": "T07", "input": "Учётная запись service_account выгрузила 8 ГБ данных из общего хранилища в 11:00 в рамках миграции проекта.", "expected": "normal", "type": "typical_normal"},
+  {"id": "T08", "input": "Пользователь kuznetsov зашёл в корпоративный портал из офиса через VPN в 11:45.", "expected": "normal", "type": "typical_normal"},
+  {"id": "T09", "input": "Администратор подтвердил обновление политики паролей через панель управления в 16:00.", "expected": "normal", "type": "typical_normal"},
+  {"id": "T10", "input": "Пользователь morozov отправил запрос на расширение прав доступа к папке marketing через официальную заявку.", "expected": "normal", "type": "typical_normal"},
+
+  {"id": "T11", "input": "25 неудачных попыток входа в admin с одного IP, затем успешный вход.", "expected": "suspicious", "type": "brute_force"},
+  {"id": "T12", "input": "50 неудачных попыток входа в root с IP 192.168.1.100 за 2 минуты.", "expected": "suspicious", "type": "brute_force"},
+  {"id": "T13", "input": "Всплеск трафика на порт 22 с внешнего IP 45.67.89.10, затем сканирование внутренних портов 3389 и 445.", "expected": "suspicious", "type": "port_scan"},
+  {"id": "T14", "input": "Учётная запись service_account выгрузила 12 ГБ данных из корпоративного хранилища в 03:15, соединение разорвано.", "expected": "suspicious", "type": "data_exfiltration"},
+  {"id": "T15", "input": "Вход пользователя admin в 03:00 с IP-адреса, ранее не встречавшегося в логах.", "expected": "suspicious", "type": "anomaly_time"},
+  {"id": "T16", "input": "Пользователь ivanov скачал 200 файлов из внутреннего репозитория за 5 минут.", "expected": "suspicious", "type": "anomaly_volume"},
+
+  {"id": "T17", "input": "Вход пользователя из страны, не соответствующей его обычному местоположению, без VPN.", "expected": "suspicious", "type": "geo_anomaly"},
+  {"id": "T18", "input": "Новая учётная запись создана в 02:00 с правами администратора, создатель неизвестен.", "expected": "suspicious", "type": "privilege_escalation"},
+  {"id": "T19", "input": "Учётная запись root активна с 02:00 до 04:00, хотя обычно используется только в рабочие часы.", "expected": "suspicious", "type": "off_hours"},
+  {"id": "T20", "input": "Обнаружено подключение к базе данных с внешнего IP без авторизации в корпоративной сети.", "expected": "suspicious", "type": "unauthorized_access"},
+
+  {"id": "T21", "input": "Пользователь admin вошёл с IP 10.0.0.15 в 10:30, MFA не запрашивалась.", "expected": "suspicious", "type": "mfa_bypass"},
+  {"id": "T22", "input": "Скачивание 5 ГБ данных из HR-хранилища учётной записью сотрудника IT-отдела в 23:00.", "expected": "suspicious", "type": "data_exfiltration"},
+  {"id": "T23", "input": "В логах зафиксирована попытка входа с несуществующим сертификатом.", "expected": "suspicious", "type": "anomaly_auth"},
+  {"id": "T24", "input": "Учётная запись service_account запустила процесс PowerShell с параметрами, изменяющими политику аудита.", "expected": "suspicious", "type": "suspicious_process"},
+
+  {"id": "T25", "input": "Множественные ошибки аутентификации в нескольких учётных записях с одного IP за 10 минут.", "expected": "suspicious", "type": "brute_force"},
+  {"id": "T26", "input": "Скрипт обнаружен в папке автозагрузки пользователя с нетипичным именем и правами SYSTEM.", "expected": "suspicious", "type": "malware_indicator"},
+
+  {"id": "T27", "input": "Пользователь зашёл с личного устройства через корпоративный VPN без MFA.", "expected": "suspicious", "type": "byod_risk"},
+  {"id": "T28", "input": "Обнаружено изменение конфигурации firewall в обход процесса согласования.", "expected": "suspicious", "type": "config_change"},
+
+  {"id": "T29", "input": "Обнаружена подозрительная активность. Подробности отсутствуют.", "expected": "suspicious", "type": "incomplete"},
+  {"id": "T30", "input": "Попытка входа в систему. IP-адрес неизвестен, имя пользователя не указано.", "expected": "suspicious", "type": "incomplete"}
+]
